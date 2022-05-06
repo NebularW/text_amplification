@@ -49,7 +49,7 @@ def baidu_fanyi(query, from_lan='auto', to_lan='zh'):
 
 
 if __name__ == '__main__':
-    ini_file = 'D:\\Code\\PyCharm\\DataScience\\text\\input.txt'
+    ini_file = '.\\text\\input.txt'
     ini = fetch_data(ini_file)
     en = baidu_fanyi(ini, from_lan='zh', to_lan='en')
     res = baidu_fanyi(en, from_lan='auto', to_lan='zh')

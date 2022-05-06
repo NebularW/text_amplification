@@ -34,7 +34,7 @@ def random_delete_char(input_str):
 
 
 if __name__ == '__main__':
-    ini_file = 'D:\\Code\\PyCharm\\DataScience\\text\\input.txt'
+    ini_file = '.\\text\\input.txt'
     in_str = fetch_data(ini_file)
 
     print('原文件：\n')

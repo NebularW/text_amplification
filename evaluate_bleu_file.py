@@ -128,8 +128,8 @@ def BLEU(candidate, references):
 
 
 if __name__ == "__main__":
-    candidate_file = 'D:\\Code\\PyCharm\\DataScience\\output\\similar_word1.txt'
-    references_file = 'D:\\Code\\PyCharm\\DataScience\\text\\input.txt'
+    candidate_file = '.\\output\\similar_word1.txt'
+    references_file = '.\\text\\input.txt'
     candidate, references = fetch_data(candidate_file, references_file)
     bleu = BLEU(candidate, references)
     print('BLEU = ', bleu)
