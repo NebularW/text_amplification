@@ -60,3 +60,7 @@ def back_translate(filepath, filename):
     out.write(res)
     out.close()
     return output_file
+
+
+if __name__ == '__main__':
+    back_translate('.\\text\\content1.txt', 'content1')

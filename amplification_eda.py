@@ -66,3 +66,7 @@ def eda(filepath, filename):
         i += 1
 
     return output_file
+
+
+if __name__ == '__main__':
+    eda('.\\text\\content1.txt', 'content1.txt')

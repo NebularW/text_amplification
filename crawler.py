@@ -1,5 +1,4 @@
 import requests
-import time
 import re
 from bs4 import BeautifulSoup
 
@@ -65,3 +64,7 @@ def Crawler():
         get_text(link)
         if count >= 300:
             break
+
+
+if __name__ == '__main__':
+    Crawler()

@@ -1,5 +1,4 @@
 # -*- coding:utf-8 -*-
-import sys
 import codecs
 import os
 import math
@@ -192,4 +191,5 @@ def evaluate_bleu(candidate_filepath, references_filepath):
     out.close()
 
 
-
+if __name__ == '__main__':
+    evaluate_bleu('.\\output\\content1_random_delete_char1.txt', '.\\text\\content1.txt')
