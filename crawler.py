@@ -36,7 +36,7 @@ def save(filename, contents):
     fh.close()
 
 
-if __name__ == '__main__':
+def Crawler():
     url = 'https://www.zj.gov.cn/'
     links = get_urls(url)
     i = 0

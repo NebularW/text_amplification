@@ -1,14 +1,25 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
+# coding=utf8
+import os
+from crawler import Crawler
+from amplification_eda import eda
+from amplification_back_translate import back_translate
+from evaluate_bleu import evaluate_bleu
 
 if __name__ == '__main__':
-    print_hi('PyCharm')
+
+    # Crawler()
+
+    input_text = ".\\text"
+    output_dir = ".\\output"
+    for root, dirs, files in os.walk(input_text):
+        for file in files:
+            filepath = os.path.join(root, file)
+            filename = file.strip('.txt')
+            for output in back_translate(filepath, filename):
+                evaluate_bleu(output, filepath)
+            for output in eda(filepath, filename):
+                evaluate_bleu(output, filepath)
+
+
+
 
