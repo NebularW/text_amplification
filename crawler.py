@@ -26,7 +26,7 @@ def get_text(url):
             for word in words:
                 if word.strip() == '':
                     continue
-                save(f'..\\crawler\\text\\content{count}.txt', word)
+                save(f'text\\content{count}.txt', word)
                 print(count)
                 count+=1
                 if count >= 200:
@@ -54,7 +54,7 @@ def save(filename, contents):
     fh.write(contents)
     fh.close()
 
-if __name__ == '__main__':
+def Crawler():
     root_url = 'https://www.zj.gov.cn/'
     links = get_urls(root_url)
     for link in links:
