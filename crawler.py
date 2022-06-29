@@ -6,10 +6,11 @@ from bs4 import BeautifulSoup
 global count
 count = 0
 
+
 def split_text(text):
-    text = re.sub('([。！？\?])([^”’])', r"\1\n\2", text) 
+    text = re.sub('([。！？\?])([^”’])', r"\1\n\2", text)
     text = re.sub('([。！？\?][”’])([^，。！？\?])', r'\1\n\2', text)
-    text = text.rstrip() 
+    text = text.rstrip()
     return text.split("\n")
 
 
@@ -17,7 +18,7 @@ def get_text(url):
     global count
     try:
         src = requests.get(url).content
-        bs_src = BeautifulSoup(src)
+        bs_src = BeautifulSoup(src, features="lxml")
         nodes = bs_src.find_all('p')
         text = ''
         for p in nodes:
@@ -26,16 +27,17 @@ def get_text(url):
             for word in words:
                 if word.strip() == '':
                     continue
-                save(f'text\\content{count}.txt', word)
+                save(f'txt\\content{count}.txt', word)
                 print(count)
-                count+=1
-                if count >= 200:
+                count += 1
+                if count >= 300:
                     return
     except requests.RequestException:
         return None
 
+
 def get_urls(root_url):
-    src = requests.get(root_url , verify=False).content
+    src = requests.get(root_url, verify=False).content
     bs_src = BeautifulSoup(src, "lxml")
     hrefs = bs_src.find_all('a')
     links = []
@@ -45,19 +47,21 @@ def get_urls(root_url):
                 link = a.get('href')
             else:
                 link = root_url + a.get('href')
-            if link.strip()!="":
+            if link.strip() != "":
                 links.append(link)
     return links
+
 
 def save(filename, contents):
     fh = open(filename, 'w', encoding='utf-8')
     fh.write(contents)
     fh.close()
 
+
 def Crawler():
     root_url = 'https://www.zj.gov.cn/'
     links = get_urls(root_url)
     for link in links:
         get_text(link)
-        if count >= 200:
+        if count >= 300:
             break
