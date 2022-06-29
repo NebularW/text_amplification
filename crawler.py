@@ -26,7 +26,7 @@ def get_text(url):
             for word in words:
                 if word.strip() == '':
                     continue
-                save(f'..\\crawler\\texts\\content{count}.txt', word)
+                save(f'..\\crawler\\text\\content{count}.txt', word)
                 print(count)
                 count+=1
                 if count >= 200:
